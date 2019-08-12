@@ -8,15 +8,17 @@ classdef PhiPsi
         selIdxs=0;
         
         transOut0 =0 ;
+        USE_GPU = gpuDeviceCount>0;
     end
     
     methods
-        function obj = PhiPsi(cots, tracks,shape)
+        function obj = PhiPsi(cots, tracks,shape, USE_GPU)
             obj.shape = shape;
             obj = obj.createCoordinates(shape, cots, tracks);
             obj.tracks = tracks;
             obj.tracks = obj.tracks(:);
-            obj.tracks = gpuArray(obj.tracks);
+            obj.USE_GPU = USE_GPU;
+            if obj.USE_GPU,  obj.tracks = gpuArray(obj.tracks); end
             
         end
         
@@ -38,8 +40,10 @@ classdef PhiPsi
             obj.selIdxs = pts(:);
             obj.transOut0 = zeros(shape);
             
-            obj.transOut0 = gpuArray(obj.transOut0);
-            obj.selIdxs = gpuArray(obj.selIdxs);
+            if obj.USE_GPU
+                obj.transOut0 = gpuArray(obj.transOut0);
+                obj.selIdxs = gpuArray(obj.selIdxs);
+            end
             
         end
         
