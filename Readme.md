@@ -1,6 +1,6 @@
 This repository contains the source code, datasets and the supplemental material for the ICCV 2019 paper, ["Restoration of Non-rigidly Distorted Underwater Images using a Combination of Compressive Sensing and Local Polynomial Image Representations"](https://arxiv.org/abs/1908.01940)
 
-The Folder 'Dataset' contains all the videos mentioned in the original paper and the supplemental materials in 'Supplemental_Material_ICCV2019'.
+The Folder 'Dataset' contains all the videos mentioned in the original paper and the supplemental materials are present in 'Supplemental_Material_ICCV2019'.
 
 
 
