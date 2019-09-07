@@ -39,7 +39,7 @@ reconDownFlows = ifftn(reconFlowFT);
 reconDownFlows = gather(reconDownFlows);
 reconFlowsOrig = resampleFlows(reconDownFlows,shape);
 reconFlowsOrig = reconFlowsOrig(1+clr(1):end-clr(1),1+clr(2):end-clr(2),:);
-mvfCS = filterFlows(reconFlowsOrig,[12,12,64]); %Flows are further filtered, consistent with the assumption of smooth flows
+mvfCS = filterFlows(reconFlowsOrig,[12,12,64]); %Flows are further filtered, to remove some residual high frequency components introduced by upsampling
 end
 
 
